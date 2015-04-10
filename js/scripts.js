@@ -1,19 +1,13 @@
 function triangulize(sides) {
-    var sides_array = [sides[0], sides[3], sides[6]]
-    var triangle_type = '';
-    // var sides_input = document.getElementsByClassName( 'sides' ),
-    //     sides  = [].map.call(sides_input, function( input ) {
-    //         return input.value;
-    // });
-    var sides = sides_array.sort();
+    var triangleType = '';
+    sides.sort();
     var a = sides[0];
     var b = sides[1];
     var c = sides[2];
 
-    if (a + b <= c || a + b >= c) {
-        triangle_type = 'TRIANGLE!';
-    }
-
+    if (a + b >= c) {
+        triangleType = 'TRIANGLE!';
+    } else return "HAVE YOU EVER SEEN A TRIANGLE!?";
 
 
 
@@ -26,18 +20,22 @@ function triangulize(sides) {
 
 
 // debugger;
-    // var output =
-    return triangle_type;
+    return triangleType;
 }
 
 
 jQuery(document).ready(function() {
     $("#side1").focus();
     $("#triangle-sides").submit(function(event) {
-        var sides = $("#words").val();
-        var triangle_class = triangulize(sides);
+        // var sides = $("#words").val();
+        var sides_input = document.getElementsByClassName( 'sides' ),
+            sides  = [].map.call(sides_input, function( input ) {
+                return input.value;
+        });
+        var triangleType = triangulize(sides);
+// debugger;
 
-        $("#triangle-class").text(triangle_class);
+        $("#triangleType").text(triangleType);
         $("#result").show();
         event.preventDefault();
     });
