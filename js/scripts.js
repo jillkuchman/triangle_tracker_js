@@ -1,34 +1,37 @@
-function triangulize(side1, side2, side3) {
-  var a = 0;
-  var b = 0;
-  var c = 0;
+function triangulize() {
 
-  var sides = document.getElementsByClassName( 'sides' ),
-    names  = [].map.call(inputs, function( input ) {
-        return input.value;
-    }).join( '|' );
-    console.log(names);
+    // var sides = [];
+
+    var sides_input = document.getElementsByClassName( 'sides' ),
+        names  = [].map.call(sides_input, function( input ) {
+            return input.value;
+    });//.join( '|' );
+
     debugger;
-  //if (side1 > side2)
+    console.log(sides);
 
 
+    // alert(names);
 
 
+    // var a = 0;
+    // var b = 0;
+    // var c = 0;
 
 
-
-  return output;
+    // var output =
+    return output;
 }
 
 
 jQuery(document).ready(function() {
-  $("#side1").focus();
-  $("#triangle-sides").submit(function(event) {
-    var sides = $("#words").val();
-    var triangle_class = triangulize(sides);
+    $("#side1").focus();
+    $("#triangle-sides").submit(function(event) {
+        var sides = $("#words").val();
+        var triangle_class = triangulize(sides);
 
-    $("#triangle-class").text(triangle_class);
-    $("#result").show();
-    event.preventDefault();
-  });
+        $("#triangle-class").text(triangle_class);
+        $("#result").show();
+        event.preventDefault();
+    });
 });
