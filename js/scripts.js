@@ -27,7 +27,7 @@ function triangulize(sides_input) {
         triangleType = 'SCALENE!';
     }
     if (Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2)) {
-        triangleType = triangleType + '(and it is also a right triangle)';
+        triangleType = triangleType + ' (but it is also a right triangle)';
     }
     return triangleType;
 }
