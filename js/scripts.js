@@ -3,22 +3,17 @@ function triangulize() {
     // var sides = [];
 
     var sides_input = document.getElementsByClassName( 'sides' ),
-        names  = [].map.call(sides_input, function( input ) {
+        sides  = [].map.call(sides_input, function( input ) {
             return input.value;
-    });//.join( '|' );
+    });
+    console.log(sides + 'unsorted');
+    sides.sort();
+    console.log(sides + 'sorted');
+    var a = sides[0];
+    var b = sides[1];
+    var c = sides[2];
 
-    debugger;
-    console.log(sides);
-
-
-    // alert(names);
-
-
-    // var a = 0;
-    // var b = 0;
-    // var c = 0;
-
-
+debugger;
     // var output =
     return output;
 }
