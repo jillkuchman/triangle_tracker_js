@@ -35,7 +35,6 @@ function triangulize(sides_input) {
 
 jQuery(document).ready(function() {
     $("#side1").focus();
-    // $("#triangleType").text('');
 
     $("#triangle-sides").submit(function(event) {
 
@@ -45,8 +44,18 @@ jQuery(document).ready(function() {
         });
         var triangleType = triangulize(sides);
 
-        $("#triangleType").text(triangleType);
-        $("#result").show();
+        if(triangleType === 'EQUILATERAL!') {
+            $("ul#equilateral").append("<li>" + sides + "</li>");
+        }
+        else if(triangleType === 'ISOSCELES!') {
+            $("ul#isosceles").append("<li>" + sides + "</li>");
+        }
+        else if(triangleType === 'SCALENE!') {
+            $("ul#scalene").append("<li>" + sides + "</li>");
+        }
+
+        // $("#triangleType").text(triangleType);
+        // $("#result").show();
         event.preventDefault();
     });
 });
