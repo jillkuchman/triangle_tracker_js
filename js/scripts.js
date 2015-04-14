@@ -22,63 +22,43 @@ jQuery(document).ready(function() {
         var input_side_a = parseInt(sides_int[0]);
         var input_side_b = parseInt(sides_int[1]);
         var input_side_c = parseInt(sides_int[2]);
-        var is_right = false;
-        var asterisk = "-";
-        console.log(input_side_a);
-
 
         var new_triangle = {    side_a: input_side_a,
                                 side_b: input_side_b,
                                 side_c: input_side_c,
-                                right_status: asterisk,
+                                asterisk : "",
                                 triangleType: function() {
                                     if (this.side_a + this.side_b <= this.side_c || this.side_a === 0) {
-                                        type = "invalid";
+                                        var type = "invalid";
                                     }
                                     else if (this.side_a === this.side_b && this.side_a === this.side_c) {
-                                        type = "equilateral";
+                                        var type = "equilateral";
                                     }
                                     else if (this.side_a === this.side_b || this.side_a === this.side_c || this.side_b === this.side_c) {
-                                        type = "isosceles";
+                                        var type = "isosceles";
                                     }
                                     else {
-                                        type = "scalene";
+                                        var type = "scalene";
                                     }
                                     if (Math.pow(this.side_a, 2) + Math.pow(this.side_b, 2) === Math.pow(this.side_c, 2)) {
-                                        type += " right";
+                                        this.asterisk = "*";
                                     }
 
                                     return type;
-                                },
-                                // isRight: function() {
-                                //     if (is_right) {
-                                //         asterisk = "*";
-                                //     }
-                                //     return asterisk;
-                                // },
+                                }
 
-                            };
 
-                            console.log(asterisk);
-
-        // var triangleType = triangulize(sides);
+        };
 
         if(new_triangle.triangleType() === 'equilateral') {
             $("ul#equilateral").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + "</li>");
         }
         else if(new_triangle.triangleType() === 'isosceles') {
-            $("ul#isosceles").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + "</li>");
+            $("ul#isosceles").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + new_triangle.asterisk + "</li>");
         }
         else if(new_triangle.triangleType() === 'scalene') {
-            $("ul#scalene").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + "</li>");
+            $("ul#scalene").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + new_triangle.asterisk + "</li>");
         }
-        else if(new_triangle.triangleType() === 'isosceles right') {
-            $("ul#isosceles").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + "* </li>");
-        }
-        else if(new_triangle.triangleType() === 'scalene right') {
-            $("ul#scalene").append("<li>" + input_side_a + ", " + input_side_b + ", " + input_side_c + "* </li>");
-        }
-
         else if(new_triangle.triangleType() === 'invalid') {
             alert("Do it right, asshole.");
         }
