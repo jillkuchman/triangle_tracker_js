@@ -1,5 +1,4 @@
 function triangulize(sides_input) {
-    var triangleType = '';
     var sides = [];
     for(var i in sides_input) {
         sides.push(parseInt(sides_input[i]));
@@ -9,28 +8,33 @@ function triangulize(sides_input) {
         return a-b;
     });
 
+    var input_side_a = parseInt(sides[0]);
+    var input_side_b = parseInt(sides[1]);
+    var input_side_c = parseInt(sides[2]);
 
-    var a = parseInt(sides[0]);
-    var b = parseInt(sides[1]);
-    var c = parseInt(sides[2]);
+    var triangle = {    side_a: input_side_a,
+                        side_b: input_side_b,
+                        side_c: input_side_c,
+                        triangle_type: function() {
+                            if (side_a + side_b <= side_c ) {
+                                type = "invalid";
+                            }
+                            else if (side_a === side_b && side_a === side_c) {
+                                type = "equilateral";
+                            }
+                            else if (side_a === side_b || side_a === side_c || side_b === side_c) {
+                                type = "isosceles";
+                            }
+                            else if (Math.pow(side_a, 2) + Math.pow(side_b, 2) === Math.pow(side_c, 2)) {
+                                type="right";
+                            }
+                            else {
+                                type = "scalene";
+                            }
+                            return type;
+                        }
 
-    if (a + b <= c) {
-        triangleType = alert('INCOMPATIBLE SIDES! TRI AGAIN!');
     }
-    else if (a === b && a === c) {
-        triangleType = 'EQUILATERAL!';
-    }
-    else if (a === b || a === c || b === c) {
-        triangleType = 'ISOSCELES!';
-    }
-    else  {
-        triangleType = 'SCALENE!';
-    }
-    if (Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2)) {
-        triangleType = triangleType + ' (but it is also a right triangle)';
-    }
-    return triangleType;
-}
 
 
 jQuery(document).ready(function() {
