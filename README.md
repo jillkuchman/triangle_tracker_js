@@ -1,14 +1,19 @@
-# Triangle Classification for Epicodus
-## by James Nielson
-### Date: April 10, 2015
-#### Description
+##Triangle Tracker
+
+####Developers
+Jill Kuchman & James Nielson
+
+####Date
+14 April 2015
+
+####Description
 This web app identifies the type of triangle produced by 3 given side lengths.
 
-#### Setup instructions
+####Setup instructions
 1. Clone this git repository
 2. Start the web app by loading triangles.html in your browser
 
-#### Copyright © 2015, James Nielson
+#### Copyright © 2015, James Nielson & Jill Kuchman
 
 #### License: [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)  
 
